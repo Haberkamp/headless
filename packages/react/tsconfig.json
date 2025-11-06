@@ -1,36 +1,7 @@
 {
-  // This config is for emitting declarations (.d.ts) only.
-  // TS source files are transpiled to JS by Babel.
-  "compilerOptions": {
-    "composite": true,
-    "target": "es2020",
-    "jsx": "react-jsx",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "experimentalDecorators": true,
-    "baseUrl": "./",
-    "rootDir": "./src",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "allowJs": true,
-    "strict": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "noEmit": true,
-    "outDir": "build/esm",
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noErrorTruncation": false,
-    "skipLibCheck": true
-  },
-  "include": [
-    "src/**/*.ts*"
+  "references": [
+    { "path": "./tsconfig.build.json" },
+    { "path": "./tsconfig.test.json" }
   ],
-  "exclude": [
-    "src/**/*.spec.ts*",
-    "src/**/*.test.ts*"
-  ]
+  "files": []
 }
