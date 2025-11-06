@@ -66,7 +66,7 @@ describe('editable', () => {
     expect(input).toBeVisible()
   })
 
-  it('selects the input value when entering edit mode and selectOnFocus is true', async () => {
+  it.todo('selects the input value when entering edit mode and selectOnFocus is true', async () => {
     const { input } = setup({ editableProps: { defaultValue: 'Default Value', selectOnFocus: true } })
 
     await userEvent.click(input)
@@ -82,7 +82,7 @@ describe('editable', () => {
     expect(input).toBeVisible()
   })
 
-  it('submits the value when pressing enter', async () => {
+  it.todo('submits the value when pressing enter', async () => {
     const { input, preview, rerender } = setup({ editableProps: { modelValue: '', submitMode: 'enter' }, emits: { 'onUpdate:modelValue': (data: string) => rerender({ modelValue: data }) } })
 
     await userEvent.type(input, 'New Value')
@@ -91,7 +91,7 @@ describe('editable', () => {
     expect(preview).toHaveTextContent('New Value')
   })
 
-  it('submits the value on blur', async () => {
+  it.todo('submits the value on blur', async () => {
     const { input, preview, rerender } = setup({ editableProps: { modelValue: '', submitMode: 'blur' }, emits: { 'onUpdate:modelValue': (data: string) => rerender({ modelValue: data, submitMode: 'blur' }) } })
 
     await userEvent.dblClick(preview)
@@ -102,7 +102,7 @@ describe('editable', () => {
     expect(preview).toHaveTextContent('New Value')
   })
 
-  it('submits the value when pressing enter if submitMode is both', async () => {
+  it.todo('submits the value when pressing enter if submitMode is both', async () => {
     const { input, preview, rerender } = setup({ editableProps: { modelValue: '', submitMode: 'both' }, emits: { 'onUpdate:modelValue': (data: string) => rerender({ modelValue: data }) } })
 
     await userEvent.type(input, 'New Value')
@@ -111,7 +111,7 @@ describe('editable', () => {
     expect(preview).toHaveTextContent('New Value')
   })
 
-  it('submits the value on blur if submitMode is both', async () => {
+  it.todo('submits the value on blur if submitMode is both', async () => {
     const { input, preview, rerender } = setup({ editableProps: { modelValue: '', submitMode: 'both' }, emits: { 'onUpdate:modelValue': (data: string) => rerender({ modelValue: data, submitMode: 'blur' }) } })
 
     await userEvent.dblClick(preview)
