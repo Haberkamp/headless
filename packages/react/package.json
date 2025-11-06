@@ -1,0 +1,61 @@
+{
+  "name": "reka-ui-react",
+  "type": "module",
+  "version": "2.6.0",
+  "description": "React port for Radix UI Primitives.",
+  "author": "UnoVue Contributors (https://github.com/unovue)",
+  "license": "MIT",
+  "homepage": "https://github.com/unovue/reka-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unovue/reka-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unovue/reka-ui/issues"
+  },
+  "keywords": [
+    "ui",
+    "react",
+    "accessibility",
+    "headless",
+    "nuxt",
+    "primitives",
+    "components",
+    "radix",
+    "unstyled"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "!src/**/*.story.vue",
+    "!src/**/*.test.*",
+    "!src/**/_*.vue",
+    "!src/**/__snapshots__",
+    "!src/**/stories",
+    "!src/**/story"
+  ],
+  "scripts": {
+    "build": "tsdown"
+  },
+  "peerDependencies": {
+    "react": ">= 19.0.0",
+    "react-dom": ">= 19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsdown": "^0.12.9",
+    "typescript": "^5.9.3"
+  }
+}
