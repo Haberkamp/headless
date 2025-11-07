@@ -1,0 +1,5 @@
+export { TabsContent, type TabsContentProps } from './TabsContent'
+export { TabsIndicator, type TabsIndicatorProps } from './TabsIndicator'
+export { TabsList, type TabsListProps } from './TabsList'
+export { TabsRoot, type TabsRootProps, useTabsRootContext } from './TabsRoot'
+export { TabsTrigger, type TabsTriggerProps } from './TabsTrigger'

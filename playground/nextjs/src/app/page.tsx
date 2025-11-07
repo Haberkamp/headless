@@ -2,6 +2,7 @@
 
 import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableRoot, EditableSubmitTrigger } from 'reka-ui-react'
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
+import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
 
 export default function Home() {
   return (
@@ -67,6 +68,31 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
           </AccordionRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <TabsRoot defaultValue="account" className="w-full max-w-md">
+            <TabsList className="flex border-b border-stone-600">
+              <TabsTrigger value="account" className="px-4 py-2 text-gray-300 data-[state=active]:text-white data-[state=active]:border-b-2 data-[state=active]:border-white">
+                Account
+              </TabsTrigger>
+              <TabsTrigger value="password" className="px-4 py-2 text-gray-300 data-[state=active]:text-white data-[state=active]:border-b-2 data-[state=active]:border-white">
+                Password
+              </TabsTrigger>
+              <TabsTrigger value="settings" className="px-4 py-2 text-gray-300 data-[state=active]:text-white data-[state=active]:border-b-2 data-[state=active]:border-white">
+                Settings
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="account" className="text-gray-300 p-4">
+              Make changes to your account here. Click save when you&apos;re done.
+            </TabsContent>
+            <TabsContent value="password" className="text-gray-300 p-4">
+              Change your password here. After saving, you&apos;ll be logged out.
+            </TabsContent>
+            <TabsContent value="settings" className="text-gray-300 p-4">
+              Manage your application settings and preferences here.
+            </TabsContent>
+          </TabsRoot>
         </div>
       </div>
     </div>
