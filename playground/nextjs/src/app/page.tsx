@@ -3,8 +3,43 @@
 import { useEffect, useRef, useState } from 'react'
 import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableRoot, EditableSubmitTrigger } from 'reka-ui-react'
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
+import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
+
+function ChevronLeft() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64038 12.0535 8.32396 12.0433 8.1351 11.8419L4.3851 7.84188C4.20408 7.64955 4.20408 7.35027 4.3851 7.15794L8.1351 3.15794C8.32396 2.9565 8.64038 2.94629 8.84182 3.13514Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </svg>
+  )
+}
+
+function ChevronRight() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.15803 3.13508C6.35953 2.94621 6.67605 2.95642 6.86492 3.15792L10.6149 7.15792C10.7959 7.3502 10.7959 7.64949 10.6149 7.84182L6.86492 11.8418C6.67605 12.0433 6.35953 12.0535 6.15803 11.8646C5.95654 11.6757 5.94633 11.3592 6.1352 11.1577L9.56503 7.49985L6.1352 3.84182C5.94633 3.64032 5.95654 3.32381 6.15803 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </svg>
+  )
+}
+
+function DoubleChevronLeft() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7L6.85355 10.1464C7.04882 10.3417 7.04882 10.6583 6.85355 10.8536C6.65829 11.0488 6.34171 11.0488 6.14645 10.8536L2.14645 6.85355C1.95118 6.65829 1.95118 6.34171 2.14645 6.14645L6.14645 2.14645C6.34171 1.95118 6.65829 1.95118 6.85355 2.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      <path d="M12.8536 3.14645C13.0488 3.34171 13.0488 3.65829 12.8536 3.85355L9.70711 7L12.8536 10.1464C13.0488 10.3417 13.0488 10.6583 12.8536 10.8536C12.6583 11.0488 12.3417 11.0488 12.1464 10.8536L8.14645 6.85355C7.95118 6.65829 7.95118 6.34171 8.14645 6.14645L12.1464 2.14645C12.3417 1.95118 12.6583 1.95118 12.8536 2.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </svg>
+  )
+}
+
+function DoubleChevronRight() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2.14645 11.1464C1.95118 10.9512 1.95118 10.6346 2.14645 10.4394L5.29289 7.29289L2.14645 4.14645C1.95118 3.95118 1.95118 3.6346 2.14645 3.43934C2.34171 3.24408 2.65829 3.24408 2.85355 3.43934L6.85355 7.43934C7.04882 7.6346 7.04882 7.95118 6.85355 8.14645L2.85355 12.1464C2.65829 12.3417 2.34171 12.3417 2.14645 12.1464Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      <path d="M8.14645 11.1464C7.95118 10.9512 7.95118 10.6346 8.14645 10.4394L11.2929 7.29289L8.14645 4.14645C7.95118 3.95118 7.95118 3.6346 8.14645 3.43934C8.34171 3.24408 8.65829 3.24408 8.85355 3.43934L12.8536 7.43934C13.0488 7.6346 13.0488 7.95118 12.8536 8.14645L8.85355 12.1464C8.65829 12.3417 8.34171 12.3417 8.14645 12.1464Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </svg>
+  )
+}
 
 export default function Home() {
   const [progressValue, setProgressValue] = useState(0)
@@ -118,6 +153,51 @@ export default function Home() {
               style={{ transform: `translateX(-${100 - progressValue}%)` }}
             />
           </ProgressRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
+          <div className="w-full max-w-[700px] flex items-center py-12 sm:py-[100px] justify-center">
+            <PaginationRoot itemsPerPage={10} total={100} siblingCount={1} showEdges defaultPage={2}>
+              <PaginationList className="flex items-center gap-1 text-white">
+                {({ items }: { items: Array<{ type: 'ellipsis' } | { type: 'page', value: number }> }) => (
+                  <>
+                    <PaginationFirst className="w-9 h-9 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-stone-700/70 hover:text-black transition disabled:opacity-50 rounded-lg text-white">
+                      <DoubleChevronLeft />
+                    </PaginationFirst>
+                    <PaginationPrev className="w-9 h-9 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-stone-700/70 hover:text-black transition mr-4 disabled:opacity-50 rounded-lg text-white">
+                      <ChevronLeft />
+                    </PaginationPrev>
+                    {items.map((pageItem, index) => (
+                      pageItem.type === 'page'
+                        ? (
+                            <PaginationListItem
+                              key={index}
+                              value={pageItem.value}
+                              className="w-9 h-9 border dark:border-stone-800 rounded-lg data-[selected]:!bg-white data-[selected]:shadow-sm data-[selected]:!text-black hover:bg-white dark:hover:bg-stone-700/70 hover:text-black transition flex items-center justify-center text-white"
+                            >
+                              {pageItem.value}
+                            </PaginationListItem>
+                          )
+                        : (
+                            <PaginationEllipsis
+                              key={index}
+                              className="w-9 h-9 flex items-center justify-center text-white"
+                            >
+                              …
+                            </PaginationEllipsis>
+                          )
+                    ))}
+                    <PaginationNext className="w-9 h-9 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-stone-700/70 hover:text-black transition ml-4 disabled:opacity-50 rounded-lg text-white">
+                      <ChevronRight />
+                    </PaginationNext>
+                    <PaginationLast className="w-9 h-9 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-stone-700/70 hover:text-black transition disabled:opacity-50 rounded-lg text-white">
+                      <DoubleChevronRight />
+                    </PaginationLast>
+                  </>
+                )}
+              </PaginationList>
+            </PaginationRoot>
+          </div>
         </div>
       </div>
     </div>

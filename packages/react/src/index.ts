@@ -1,4 +1,5 @@
 export * from './Accordion'
 export * from './Editable'
+export * from './Pagination'
 export * from './Progress'
 export * from './Tabs'
