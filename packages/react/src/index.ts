@@ -1,4 +1,5 @@
 export * from './Accordion'
+export * from './AspectRatio'
 export * from './Avatar'
 export * from './Checkbox'
 export * from './Collapsible'

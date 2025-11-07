@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableRoot, EditableSubmitTrigger } from 'reka-ui-react'
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
+import { AspectRatio } from '../../../../packages/react/src/AspectRatio'
 import { AvatarFallback, AvatarImage, AvatarRoot } from '../../../../packages/react/src/Avatar'
 import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
 import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../../../packages/react/src/Collapsible'
@@ -272,6 +273,16 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <AspectRatio ratio={16 / 9} className="w-full max-w-md">
+            <img
+              className="h-full w-full object-cover rounded-lg"
+              src="https://images.unsplash.com/photo-1498855926480-d98e83099315?w=800&dpr=2&q=80"
+              alt="Landscape photograph by Tobias Tullius"
+            />
+          </AspectRatio>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
