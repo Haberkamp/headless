@@ -5,6 +5,7 @@ import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
 import { AvatarFallback, AvatarImage, AvatarRoot } from '../../../../packages/react/src/Avatar'
 import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
+import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../../../packages/react/src/Collapsible'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
 import { SwitchRoot, SwitchThumb } from '../../../../packages/react/src/Switch'
@@ -223,6 +224,17 @@ export default function Home() {
               </label>
             </div>
           </CheckboxGroupRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <CollapsibleRoot className="w-full max-w-md">
+            <CollapsibleTrigger className="w-full px-4 py-2 text-left text-white bg-stone-800 hover:bg-stone-700 rounded-lg transition-colors">
+              Collapsible Trigger
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-2 px-4 py-2 text-gray-300 bg-stone-800 rounded-lg">
+              This is the collapsible content. Click the trigger to toggle visibility.
+            </CollapsibleContent>
+          </CollapsibleRoot>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
