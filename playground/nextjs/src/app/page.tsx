@@ -8,6 +8,7 @@ import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../
 import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../../../packages/react/src/Collapsible'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
+import { Separator } from '../../../../packages/react/src/Separator'
 import { SwitchRoot, SwitchThumb } from '../../../../packages/react/src/Switch'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
 
@@ -235,6 +236,42 @@ export default function Home() {
               This is the collapsible content. Click the trigger to toggle visibility.
             </CollapsibleContent>
           </CollapsibleRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <div className="w-full max-w-[300px]">
+            <div className="text-white text-[15px] leading-5 font-medium">
+              Reka UI
+            </div>
+            <div className="text-white text-[15px] leading-5">
+              An open-source UI component library.
+            </div>
+            <Separator
+              decorative
+              className="bg-[#d7cff9] data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px my-[15px]"
+            />
+            <div className="flex h-5 items-center">
+              <div className="text-white text-[15px] leading-5">
+                Blog
+              </div>
+              <Separator
+                className="bg-[#d7cff9] data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px mx-[15px]"
+                decorative
+                orientation="vertical"
+              />
+              <div className="text-white text-[15px] leading-5">
+                Docs
+              </div>
+              <Separator
+                className="bg-[#d7cff9] data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px mx-[15px]"
+                decorative
+                orientation="vertical"
+              />
+              <div className="text-white text-[15px] leading-5">
+                Source
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
