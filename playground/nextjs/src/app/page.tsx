@@ -6,6 +6,7 @@ import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, Accord
 import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
+import { SwitchRoot, SwitchThumb } from '../../../../packages/react/src/Switch'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
 
 function ChevronLeft() {
@@ -154,6 +155,19 @@ export default function Home() {
               style={{ transform: `translateX(-${100 - progressValue}%)` }}
             />
           </ProgressRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <div className="flex flex-col gap-4 items-center">
+            <label htmlFor="airplane-mode" className="text-white">Airplane mode</label>
+            <SwitchRoot
+              id="airplane-mode"
+              aria-label="Airplane mode"
+              className="w-11 h-6 rounded-full bg-stone-700 data-[state=checked]:bg-white transition-colors focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+            >
+              <SwitchThumb className="block w-5 h-5 bg-white rounded-full translate-x-0.5 data-[state=checked]:translate-x-[22px] data-[state=checked]:bg-black transition-all" />
+            </SwitchRoot>
+          </div>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
