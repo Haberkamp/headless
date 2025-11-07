@@ -1,4 +1,5 @@
 export * from './Accordion'
+export * from './Checkbox'
 export * from './Editable'
 export * from './Pagination'
 export * from './Progress'

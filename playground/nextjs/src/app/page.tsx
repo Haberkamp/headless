@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableRoot, EditableSubmitTrigger } from 'reka-ui-react'
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
+import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
@@ -153,6 +154,47 @@ export default function Home() {
               style={{ transform: `translateX(-${100 - progressValue}%)` }}
             />
           </ProgressRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <CheckboxGroupRoot className="flex flex-col gap-2.5">
+            <div className="flex flex-row gap-4 items-center">
+              <CheckboxRoot value="option1" id="option1" aria-label="Option 1" className="shadow-blackA7 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)]">
+                <CheckboxIndicator className="bg-white h-full w-full rounded flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.022C7.29783 11.1911 7.13556 11.3197 6.93852 11.3864C6.74147 11.4531 6.52387 11.4531 6.32682 11.3864C6.12978 11.3197 5.96751 11.1911 5.86735 11.022L3.35735 7.36998C3.16845 7.08108 3.24955 6.69374 3.53845 6.50484C3.82735 6.31594 4.21469 6.39704 4.40359 6.68594L6.59852 9.78484L10.6016 3.91084C10.7905 3.62194 11.1778 3.54084 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                  </svg>
+                </CheckboxIndicator>
+              </CheckboxRoot>
+              <label htmlFor="option1" className="select-none text-white cursor-pointer">
+                Option 1
+              </label>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <CheckboxRoot value="option2" id="option2" aria-label="Option 2" className="shadow-blackA7 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)]">
+                <CheckboxIndicator className="bg-white h-full w-full rounded flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.022C7.29783 11.1911 7.13556 11.3197 6.93852 11.3864C6.74147 11.4531 6.52387 11.4531 6.32682 11.3864C6.12978 11.3197 5.96751 11.1911 5.86735 11.022L3.35735 7.36998C3.16845 7.08108 3.24955 6.69374 3.53845 6.50484C3.82735 6.31594 4.21469 6.39704 4.40359 6.68594L6.59852 9.78484L10.6016 3.91084C10.7905 3.62194 11.1778 3.54084 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                  </svg>
+                </CheckboxIndicator>
+              </CheckboxRoot>
+              <label htmlFor="option2" className="select-none text-white cursor-pointer">
+                Option 2
+              </label>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <CheckboxRoot value="option3" id="option3" aria-label="Option 3" className="shadow-blackA7 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)]">
+                <CheckboxIndicator className="bg-white h-full w-full rounded flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.022C7.29783 11.1911 7.13556 11.3197 6.93852 11.3864C6.74147 11.4531 6.52387 11.4531 6.32682 11.3864C6.12978 11.3197 5.96751 11.1911 5.86735 11.022L3.35735 7.36998C3.16845 7.08108 3.24955 6.69374 3.53845 6.50484C3.82735 6.31594 4.21469 6.39704 4.40359 6.68594L6.59852 9.78484L10.6016 3.91084C10.7905 3.62194 11.1778 3.54084 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                  </svg>
+                </CheckboxIndicator>
+              </CheckboxRoot>
+              <label htmlFor="option3" className="select-none text-white cursor-pointer">
+                Option 3
+              </label>
+            </div>
+          </CheckboxGroupRoot>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
