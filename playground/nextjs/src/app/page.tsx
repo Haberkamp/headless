@@ -9,6 +9,7 @@ import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../
 import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../../../packages/react/src/Collapsible'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
+import { RadioGroupIndicator, RadioGroupItem, RadioGroupRoot } from '../../../../packages/react/src/RadioGroup'
 import { Separator } from '../../../../packages/react/src/Separator'
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from '../../../../packages/react/src/Slider'
 import { SwitchRoot, SwitchThumb } from '../../../../packages/react/src/Switch'
@@ -308,6 +309,48 @@ export default function Home() {
               <SliderThumb className="block w-5 h-5 bg-white shadow-[0_2px_10px] shadow-blackA7 rounded-[10px] hover:bg-stone-100 focus:outline-none focus:shadow-[0_0_0_5px] focus:shadow-white/20" />
             </SliderRoot>
           </div>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <RadioGroupRoot className="flex flex-col gap-2.5" aria-label="View density" orientation="vertical">
+            <div className="flex items-center">
+              <RadioGroupItem
+                id="r1"
+                value="default"
+                className="bg-white w-[25px] h-[25px] rounded-full shadow-[0_2px_10px] shadow-blackA7 hover:bg-violet3 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)] focus:outline-none outline-none cursor-default data-[disabled]:bg-gray-400"
+              >
+                <RadioGroupIndicator className="flex items-center justify-center w-full h-full relative after:content-[''] after:block after:w-[11px] after:h-[11px] after:rounded-[50%] after:bg-black" />
+              </RadioGroupItem>
+              <label htmlFor="r1" className="text-white text-[15px] leading-none pl-[15px] cursor-pointer">
+                Default
+              </label>
+            </div>
+            <div className="flex items-center">
+              <RadioGroupItem
+                id="r2"
+                value="comfortable"
+                disabled
+                className="bg-white w-[25px] h-[25px] rounded-full shadow-[0_2px_10px] shadow-blackA7 hover:bg-violet3 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)] focus:outline-none outline-none cursor-default data-[disabled]:bg-gray-400"
+              >
+                <RadioGroupIndicator className="flex items-center justify-center w-full h-full relative after:content-[''] after:block after:w-[11px] after:h-[11px] after:rounded-[50%] after:bg-black" />
+              </RadioGroupItem>
+              <label htmlFor="r2" className="text-white text-[15px] leading-none pl-[15px] cursor-pointer">
+                Comfortable
+              </label>
+            </div>
+            <div className="flex items-center">
+              <RadioGroupItem
+                id="r3"
+                value="compact"
+                className="bg-white w-[25px] h-[25px] rounded-full shadow-[0_2px_10px] shadow-blackA7 hover:bg-violet3 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:shadow-[0_0_0_3px_rgba(255,255,255,0.5)] focus:outline-none outline-none cursor-default"
+              >
+                <RadioGroupIndicator className="flex items-center justify-center w-full h-full relative after:content-[''] after:block after:w-[11px] after:h-[11px] after:rounded-[50%] after:bg-black" />
+              </RadioGroupItem>
+              <label htmlFor="r3" className="text-white text-[15px] leading-none pl-[15px] cursor-pointer">
+                Compact
+              </label>
+            </div>
+          </RadioGroupRoot>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
