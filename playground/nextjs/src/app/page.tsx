@@ -7,6 +7,7 @@ import { AspectRatio } from '../../../../packages/react/src/AspectRatio'
 import { AvatarFallback, AvatarImage, AvatarRoot } from '../../../../packages/react/src/Avatar'
 import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
 import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../../../packages/react/src/Collapsible'
+import { DialogClose, DialogContent, DialogDescription, DialogOverlay, DialogPortal, DialogRoot, DialogTitle, DialogTrigger } from '../../../../packages/react/src/Dialog'
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
 import { RadioGroupIndicator, RadioGroupItem, RadioGroupRoot } from '../../../../packages/react/src/RadioGroup'
@@ -396,6 +397,28 @@ export default function Home() {
               </PaginationList>
             </PaginationRoot>
           </div>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <DialogRoot>
+            <DialogTrigger className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-100">
+              Open Dialog
+            </DialogTrigger>
+            <DialogPortal>
+              <DialogOverlay className="fixed inset-0 bg-black/50 z-40" />
+              <DialogContent className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-stone-800 rounded-lg p-6 max-w-md w-full">
+                <DialogTitle className="text-white text-xl font-semibold mb-2">
+                  Dialog Title
+                </DialogTitle>
+                <DialogDescription className="text-gray-300 mb-4">
+                  This is a dialog description. You can close it by clicking the button or pressing Escape.
+                </DialogDescription>
+                <DialogClose className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-100">
+                  Close
+                </DialogClose>
+              </DialogContent>
+            </DialogPortal>
+          </DialogRoot>
         </div>
       </div>
     </div>
