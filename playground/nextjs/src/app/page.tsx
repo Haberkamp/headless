@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableRoot, EditableSubmitTrigger } from 'reka-ui-react'
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from '../../../../packages/react/src/Accordion'
+import { AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogOverlay, AlertDialogPortal, AlertDialogRoot, AlertDialogTitle, AlertDialogTrigger } from '../../../../packages/react/src/AlertDialog'
 import { AspectRatio } from '../../../../packages/react/src/AspectRatio'
 import { AvatarFallback, AvatarImage, AvatarRoot } from '../../../../packages/react/src/Avatar'
 import { CheckboxGroupRoot, CheckboxIndicator, CheckboxRoot } from '../../../../packages/react/src/Checkbox'
@@ -419,6 +420,33 @@ export default function Home() {
               </DialogContent>
             </DialogPortal>
           </DialogRoot>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <AlertDialogRoot>
+            <AlertDialogTrigger className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+              Delete Account
+            </AlertDialogTrigger>
+            <AlertDialogPortal>
+              <AlertDialogOverlay className="fixed inset-0 bg-black/50 z-40" />
+              <AlertDialogContent className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-stone-800 rounded-lg p-6 max-w-md w-full">
+                <AlertDialogTitle className="text-white text-xl font-semibold mb-2">
+                  Are you absolutely sure?
+                </AlertDialogTitle>
+                <AlertDialogDescription className="text-gray-300 mb-4">
+                  This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+                </AlertDialogDescription>
+                <div className="flex gap-2 justify-end mt-4">
+                  <AlertDialogCancel className="px-4 py-2 bg-stone-700 text-white rounded-lg hover:bg-stone-600">
+                    Cancel
+                  </AlertDialogCancel>
+                  <AlertDialogAction className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+                    Yes, delete account
+                  </AlertDialogAction>
+                </div>
+              </AlertDialogContent>
+            </AlertDialogPortal>
+          </AlertDialogRoot>
         </div>
       </div>
     </div>
