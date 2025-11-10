@@ -24,6 +24,61 @@ export const SliderImpl = forwardRef<HTMLSpanElement, SliderImplProps>(({
   ...props
 }, ref) => {
   const rootContext = useSliderRootContext()
+  const capturingElementRef = React.useRef<HTMLElement | null>(null)
+  const elementRef = React.useRef<HTMLSpanElement | null>(null)
+
+  // Use native event listeners because React's synthetic events don't properly support setPointerCapture
+  React.useEffect(() => {
+    const element = elementRef.current
+    if (!element)
+      return
+
+    const handleNativePointerDown = (event: PointerEvent) => {
+      const target = event.target as HTMLElement
+      target.setPointerCapture(event.pointerId)
+      capturingElementRef.current = target
+      event.preventDefault()
+
+      if (rootContext.thumbElements.includes(target)) {
+        target.focus()
+      }
+      else {
+        onSlideStart?.(event)
+      }
+    }
+
+    const handleNativePointerMove = (event: PointerEvent) => {
+      const capturingElement = capturingElementRef.current
+      if (!capturingElement)
+        return
+
+      if (capturingElement.hasPointerCapture(event.pointerId)) {
+        onSlideMove?.(event)
+      }
+    }
+
+    const handleNativePointerUp = (event: PointerEvent) => {
+      const capturingElement = capturingElementRef.current
+      if (!capturingElement)
+        return
+
+      if (capturingElement.hasPointerCapture(event.pointerId)) {
+        capturingElement.releasePointerCapture(event.pointerId)
+        capturingElementRef.current = null
+        onSlideEnd?.(event)
+      }
+    }
+
+    element.addEventListener('pointerdown', handleNativePointerDown)
+    element.addEventListener('pointermove', handleNativePointerMove)
+    element.addEventListener('pointerup', handleNativePointerUp)
+
+    return () => {
+      element.removeEventListener('pointerdown', handleNativePointerDown)
+      element.removeEventListener('pointermove', handleNativePointerMove)
+      element.removeEventListener('pointerup', handleNativePointerUp)
+    }
+  }, [onSlideStart, onSlideMove, onSlideEnd, rootContext])
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Home') {
@@ -40,45 +95,27 @@ export const SliderImpl = forwardRef<HTMLSpanElement, SliderImplProps>(({
     }
   }
 
-  const handlePointerDown = (event: React.PointerEvent) => {
-    const target = event.target as HTMLElement
-    target.setPointerCapture(event.pointerId)
-    event.preventDefault()
-    if (rootContext.thumbElements.includes(target)) {
-      target.focus()
-    }
-    else {
-      onSlideStart?.(event.nativeEvent)
-    }
-  }
-
-  const handlePointerMove = (event: React.PointerEvent) => {
-    const target = event.target as HTMLElement
-    if (target.hasPointerCapture(event.pointerId)) {
-      onSlideMove?.(event.nativeEvent)
-    }
-  }
-
-  const handlePointerUp = (event: React.PointerEvent) => {
-    const target = event.target as HTMLElement
-    if (target.hasPointerCapture(event.pointerId)) {
-      target.releasePointerCapture(event.pointerId)
-      onSlideEnd?.(event.nativeEvent)
-    }
-  }
+  // React synthetic event handlers are kept for keyboard events only
+  // Pointer events are handled via native listeners above due to setPointerCapture limitations
 
   return (
     <span
-      ref={ref}
+      ref={(el) => {
+        elementRef.current = el
+        if (typeof ref === 'function') {
+          ref(el)
+        }
+        else if (ref) {
+          ref.current = el
+        }
+      }}
       data-slider-impl
       style={{
         position: 'relative',
+        touchAction: 'none', // Prevent default touch behaviors
         ...props.style,
       }}
       onKeyDown={handleKeyDown}
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
       {...props}
     >
       {children}
