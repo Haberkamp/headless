@@ -10,6 +10,7 @@ import { CollapsibleContent, CollapsibleRoot, CollapsibleTrigger } from '../../.
 import { PaginationEllipsis, PaginationFirst, PaginationLast, PaginationList, PaginationListItem, PaginationNext, PaginationPrev, PaginationRoot } from '../../../../packages/react/src/Pagination'
 import { ProgressIndicator, ProgressRoot } from '../../../../packages/react/src/Progress'
 import { Separator } from '../../../../packages/react/src/Separator'
+import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from '../../../../packages/react/src/Slider'
 import { SwitchRoot, SwitchThumb } from '../../../../packages/react/src/Switch'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../../../../packages/react/src/Tabs'
 
@@ -49,6 +50,7 @@ function DoubleChevronRight() {
 
 export default function Home() {
   const [progressValue, setProgressValue] = useState(0)
+  const [sliderValue, setSliderValue] = useState([50])
   const indexRef = useRef(0)
 
   useEffect(() => {
@@ -283,6 +285,29 @@ export default function Home() {
               alt="Landscape photograph by Tobias Tullius"
             />
           </AspectRatio>
+        </div>
+
+        <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px]">
+          <div className="w-full max-w-md flex flex-col gap-4">
+            <div className="text-white text-[15px] leading-5 font-medium">
+              Volume:
+              {' '}
+              {sliderValue[0]}
+            </div>
+            <SliderRoot
+              value={sliderValue}
+              onChange={v => v && setSliderValue(v)}
+              className="relative flex items-center select-none touch-none w-full h-5"
+              min={0}
+              max={100}
+              step={1}
+            >
+              <SliderTrack className="bg-stone-700 relative grow rounded-full h-[3px]">
+                <SliderRange className="absolute bg-white rounded-full h-full" />
+              </SliderTrack>
+              <SliderThumb className="block w-5 h-5 bg-white shadow-[0_2px_10px] shadow-blackA7 rounded-[10px] hover:bg-stone-100 focus:outline-none focus:shadow-[0_0_0_5px] focus:shadow-white/20" />
+            </SliderRoot>
+          </div>
         </div>
 
         <div className="w-full h-full grid place-items-center rounded-xl border border-stone-700 p-6 min-h-[300px] lg:col-span-2">
